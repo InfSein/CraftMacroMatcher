@@ -47,6 +47,7 @@
             this.NUD_Control = new System.Windows.Forms.NumericUpDown();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.添加工序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -92,6 +93,8 @@
             // 
             // 配置数据ToolStripMenuItem
             // 
+            this.配置数据ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.添加工序ToolStripMenuItem});
             this.配置数据ToolStripMenuItem.Name = "配置数据ToolStripMenuItem";
             this.配置数据ToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.配置数据ToolStripMenuItem.Text = "配置数据";
@@ -231,6 +234,13 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "查看工序";
             // 
+            // 添加工序ToolStripMenuItem
+            // 
+            this.添加工序ToolStripMenuItem.Name = "添加工序ToolStripMenuItem";
+            this.添加工序ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.添加工序ToolStripMenuItem.Text = "添加工序";
+            this.添加工序ToolStripMenuItem.Click += new System.EventHandler(this.添加工序ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -244,6 +254,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "能工巧匠配宏器";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -283,6 +294,7 @@
         private System.Windows.Forms.NumericUpDown NUD_Control;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStripMenuItem 添加工序ToolStripMenuItem;
     }
 }
 
