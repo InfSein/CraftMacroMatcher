@@ -15,6 +15,7 @@ namespace CraftMacroMatcher
         }
         public struct UCraftProcess
         {
+            public string targetItemName;
             public List<int> actions;
         }
         #endregion
@@ -27,6 +28,7 @@ namespace CraftMacroMatcher
             public int need_craftsmanship;
             public int need_control;
             public int need_cp;
+            public string targetItemName;
             public List<Action> actions;
         }
         public struct Action
