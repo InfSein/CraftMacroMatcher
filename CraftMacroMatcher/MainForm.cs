@@ -1,12 +1,17 @@
 ﻿using CraftMacroMatcher.ChildForms;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
+using static CraftMacroMatcher.Structs;
 
 namespace CraftMacroMatcher
 {
     public partial class MainForm : Form
     {
         INIUtil ini;
+        Dictionary<string, List<CraftProcess>> Processes;
         public MainForm()
         {
             InitializeComponent();
@@ -14,6 +19,7 @@ namespace CraftMacroMatcher
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Processes = LoadProcesses();
             ini = new INIUtil();
             NUD_Craftsmanship.Value = ini.ReadValueInt(INIUtil.Craftsmanship);
             NUD_Control.Value = ini.ReadValueInt(INIUtil.Control);
@@ -24,6 +30,22 @@ namespace CraftMacroMatcher
         private void CBX_CRAFT_TARGET_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        
+        public static dynamic LoadProcesses()
+        {
+            if (!File.Exists(ProgramDatas.ProcessPath))
+                return new Dictionary<string, List<CraftProcess>>();
+            try
+            {
+                string content = File.ReadAllText(ProgramDatas.ProcessPath);
+                var data = JsonConvert.DeserializeObject<Dictionary<string, List<CraftProcess>>>(content);
+                return data;
+            }
+            catch
+            {
+                return new Dictionary<string, List<CraftProcess>>();
+            }
         }
 
         #region 存储个人属性
@@ -47,7 +69,7 @@ namespace CraftMacroMatcher
 
         private void 添加工序ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddCraftProcess acp = new AddCraftProcess();
+            AddCraftProcess acp = new AddCraftProcess(Processes);
             acp.ShowDialog();
             SurfProcessSets();
         }
