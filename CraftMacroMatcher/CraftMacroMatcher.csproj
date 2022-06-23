@@ -55,6 +55,24 @@
     <Compile Include="ChildForms\AddCraftProcess.Designer.cs">
       <DependentUpon>AddCraftProcess.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChildForms\AddFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForms\AddFood.Designer.cs">
+      <DependentUpon>AddFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForms\AddTinc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForms\AddTinc.Designer.cs">
+      <DependentUpon>AddTinc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForms\MacroEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForms\MacroEditor.Designer.cs">
+      <DependentUpon>MacroEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChildForms\ManageTargets.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +92,15 @@
     <Compile Include="Structs.cs" />
     <EmbeddedResource Include="ChildForms\AddCraftProcess.resx">
       <DependentUpon>AddCraftProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForms\AddFood.resx">
+      <DependentUpon>AddFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForms\AddTinc.resx">
+      <DependentUpon>AddTinc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForms\MacroEditor.resx">
+      <DependentUpon>MacroEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChildForms\ManageTargets.resx">
       <DependentUpon>ManageTargets.cs</DependentUpon>

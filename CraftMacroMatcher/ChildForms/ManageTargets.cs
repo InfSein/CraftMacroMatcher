@@ -51,6 +51,8 @@ namespace CraftMacroMatcher.ChildForms
             }
             string str = JsonConvert.SerializeObject(newdict);
             System.IO.File.WriteAllText(ProgramDatas.ProcessPath, str);
+            MessageBox.Show("保存成功");
+            this.Close();
         }
     }
 }

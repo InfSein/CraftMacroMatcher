@@ -9,10 +9,16 @@ namespace CraftMacroMatcher
 {
     public class Structs
     {
-        #region 用户定义的结构体
-        public struct CMMData
+        #region 食物的结构体
+        public struct FoodProps
         {
-            public List<UCraftProcess> processes;
+            public string name;
+            public float craftsmanshipAdd_Percent;
+            public float controlAdd_Percent;
+            public float cpAdd_Percent;
+            public int craftsmanshipAdd_Max;
+            public int controlAdd_Max;
+            public int cpAdd_Max;
         }
         public struct UCraftProcess
         {
@@ -23,7 +29,7 @@ namespace CraftMacroMatcher
         }
         #endregion
 
-        #region 程序使用的结构体
+        #region 工序的结构体
         public struct CraftProcess
         {
             public string name;
@@ -93,6 +99,12 @@ namespace CraftMacroMatcher
         #endregion
 
         #region 作业
+        public static Action BasicSynthesis = new Action(
+            (int)ActId.BasicSynthesis, 3, 0, "制作", "作業", "Basic Synthesis"
+        );
+        public static Action CarefulSynthesis = new Action(
+            (int)ActId.CarefulSynthesis, 3, 5, "模范制作", "模範作業", "Careful Synthesis"
+        );
         public static Action RapidSynthesis = new Action(
             (int)ActId.RapidSynthesis, 3, 0, "高速制作", "突貫作業", "Rapid Synthesis"
         );
@@ -196,7 +208,7 @@ namespace CraftMacroMatcher
         public static readonly List<Action> ActionList = new List<Action>()
         {
             MuscleMemory, Reflect, TrainedEye,
-            RapidSynthesis, FocusedSynthesis, Groundwork, IntensiveSynthesis, PrudentSynthesis, DelicateSynthesis,
+            BasicSynthesis, CarefulSynthesis, RapidSynthesis, FocusedSynthesis, Groundwork, IntensiveSynthesis, PrudentSynthesis, DelicateSynthesis,
             BasicTouch, HastyTouch, StandardTouch, ByregotsBlessing, PreciseTouch, PrudentTouch, FocusedTouch, PreparatoryTouch, AdvancedTouch, TrainedFinesse,
             MastersMend, WasteNot, WasteNotII, Manipulation,
             Veneration, GreatStrides, Innovation,
