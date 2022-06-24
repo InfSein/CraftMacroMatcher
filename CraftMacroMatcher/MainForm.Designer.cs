@@ -53,14 +53,16 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.NUD_Control = new System.Windows.Forms.NumericUpDown();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.LAB_NEED = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BTN_2_1 = new System.Windows.Forms.Button();
+            this.BTN_1_2 = new System.Windows.Forms.Button();
+            this.BTN_1_1 = new System.Windows.Forms.Button();
             this.CBX_PROCESS_SELECTED = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.LAB_NEED = new System.Windows.Forms.Label();
-            this.BTN_1_1 = new System.Windows.Forms.Button();
-            this.BTN_1_2 = new System.Windows.Forms.Button();
-            this.BTN_2_1 = new System.Windows.Forms.Button();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.BTN_EXPORT_MACRO = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -76,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Control)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -86,7 +89,7 @@
             this.SLAB_TIP});
             this.toolStrip1.Location = new System.Drawing.Point(0, 418);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(770, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(742, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -104,7 +107,7 @@
             this.关于本作ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(770, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(742, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -264,6 +267,7 @@
             // 
             this.CBX_IS_MASTER.AutoSize = true;
             this.CBX_IS_MASTER.Cursor = System.Windows.Forms.Cursors.Help;
+            this.CBX_IS_MASTER.Enabled = false;
             this.CBX_IS_MASTER.Location = new System.Drawing.Point(25, 24);
             this.CBX_IS_MASTER.Name = "CBX_IS_MASTER";
             this.CBX_IS_MASTER.Size = new System.Drawing.Size(46, 24);
@@ -332,29 +336,20 @@
             this.groupBox7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox7.Location = new System.Drawing.Point(262, 31);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(462, 374);
+            this.groupBox7.Size = new System.Drawing.Size(467, 303);
             this.groupBox7.TabIndex = 5;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "查看工序";
             // 
-            // CBX_PROCESS_SELECTED
+            // LAB_NEED
             // 
-            this.CBX_PROCESS_SELECTED.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBX_PROCESS_SELECTED.FormattingEnabled = true;
-            this.CBX_PROCESS_SELECTED.Location = new System.Drawing.Point(97, 23);
-            this.CBX_PROCESS_SELECTED.Name = "CBX_PROCESS_SELECTED";
-            this.CBX_PROCESS_SELECTED.Size = new System.Drawing.Size(216, 28);
-            this.CBX_PROCESS_SELECTED.TabIndex = 1;
-            this.CBX_PROCESS_SELECTED.SelectedIndexChanged += new System.EventHandler(this.CBX_PROCESS_SELECTED_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "可选工序";
+            this.LAB_NEED.AutoSize = true;
+            this.LAB_NEED.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.LAB_NEED.Location = new System.Drawing.Point(298, 26);
+            this.LAB_NEED.Name = "LAB_NEED";
+            this.LAB_NEED.Size = new System.Drawing.Size(158, 20);
+            this.LAB_NEED.TabIndex = 3;
+            this.LAB_NEED.Text = "需要: 9999/9999/999";
             // 
             // panel1
             // 
@@ -364,40 +359,8 @@
             this.panel1.Controls.Add(this.BTN_1_1);
             this.panel1.Location = new System.Drawing.Point(14, 53);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(437, 221);
+            this.panel1.Size = new System.Drawing.Size(437, 238);
             this.panel1.TabIndex = 2;
-            // 
-            // LAB_NEED
-            // 
-            this.LAB_NEED.AutoSize = true;
-            this.LAB_NEED.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.LAB_NEED.Location = new System.Drawing.Point(319, 26);
-            this.LAB_NEED.Name = "LAB_NEED";
-            this.LAB_NEED.Size = new System.Drawing.Size(86, 20);
-            this.LAB_NEED.TabIndex = 3;
-            this.LAB_NEED.Text = "需要: 0/0/0";
-            // 
-            // BTN_1_1
-            // 
-            this.BTN_1_1.BackgroundImage = global::CraftMacroMatcher.Properties.Resources._001986_hr1;
-            this.BTN_1_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BTN_1_1.Cursor = System.Windows.Forms.Cursors.Help;
-            this.BTN_1_1.Location = new System.Drawing.Point(12, 13);
-            this.BTN_1_1.Name = "BTN_1_1";
-            this.BTN_1_1.Size = new System.Drawing.Size(50, 50);
-            this.BTN_1_1.TabIndex = 3;
-            this.BTN_1_1.UseVisualStyleBackColor = true;
-            // 
-            // BTN_1_2
-            // 
-            this.BTN_1_2.BackgroundImage = global::CraftMacroMatcher.Properties.Resources._001986_hr1;
-            this.BTN_1_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BTN_1_2.Cursor = System.Windows.Forms.Cursors.Help;
-            this.BTN_1_2.Location = new System.Drawing.Point(68, 13);
-            this.BTN_1_2.Name = "BTN_1_2";
-            this.BTN_1_2.Size = new System.Drawing.Size(50, 50);
-            this.BTN_1_2.TabIndex = 4;
-            this.BTN_1_2.UseVisualStyleBackColor = true;
             // 
             // BTN_2_1
             // 
@@ -410,11 +373,74 @@
             this.BTN_2_1.TabIndex = 10;
             this.BTN_2_1.UseVisualStyleBackColor = true;
             // 
+            // BTN_1_2
+            // 
+            this.BTN_1_2.BackgroundImage = global::CraftMacroMatcher.Properties.Resources._001986_hr1;
+            this.BTN_1_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_1_2.Cursor = System.Windows.Forms.Cursors.Help;
+            this.BTN_1_2.Location = new System.Drawing.Point(68, 13);
+            this.BTN_1_2.Name = "BTN_1_2";
+            this.BTN_1_2.Size = new System.Drawing.Size(50, 50);
+            this.BTN_1_2.TabIndex = 4;
+            this.BTN_1_2.UseVisualStyleBackColor = true;
+            // 
+            // BTN_1_1
+            // 
+            this.BTN_1_1.BackgroundImage = global::CraftMacroMatcher.Properties.Resources._001986_hr1;
+            this.BTN_1_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_1_1.Cursor = System.Windows.Forms.Cursors.Help;
+            this.BTN_1_1.Location = new System.Drawing.Point(12, 13);
+            this.BTN_1_1.Name = "BTN_1_1";
+            this.BTN_1_1.Size = new System.Drawing.Size(50, 50);
+            this.BTN_1_1.TabIndex = 3;
+            this.BTN_1_1.UseVisualStyleBackColor = true;
+            // 
+            // CBX_PROCESS_SELECTED
+            // 
+            this.CBX_PROCESS_SELECTED.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBX_PROCESS_SELECTED.FormattingEnabled = true;
+            this.CBX_PROCESS_SELECTED.Location = new System.Drawing.Point(97, 23);
+            this.CBX_PROCESS_SELECTED.Name = "CBX_PROCESS_SELECTED";
+            this.CBX_PROCESS_SELECTED.Size = new System.Drawing.Size(196, 28);
+            this.CBX_PROCESS_SELECTED.TabIndex = 1;
+            this.CBX_PROCESS_SELECTED.SelectedIndexChanged += new System.EventHandler(this.CBX_PROCESS_SELECTED_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "可选工序";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.BTN_EXPORT_MACRO);
+            this.groupBox10.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox10.Location = new System.Drawing.Point(262, 340);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(468, 64);
+            this.groupBox10.TabIndex = 6;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "导出结果";
+            // 
+            // BTN_EXPORT_MACRO
+            // 
+            this.BTN_EXPORT_MACRO.Location = new System.Drawing.Point(345, 21);
+            this.BTN_EXPORT_MACRO.Name = "BTN_EXPORT_MACRO";
+            this.BTN_EXPORT_MACRO.Size = new System.Drawing.Size(106, 36);
+            this.BTN_EXPORT_MACRO.TabIndex = 0;
+            this.BTN_EXPORT_MACRO.Text = "选好了点我";
+            this.BTN_EXPORT_MACRO.UseVisualStyleBackColor = true;
+            this.BTN_EXPORT_MACRO.Click += new System.EventHandler(this.BTN_EXPORT_MACRO_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 443);
+            this.ClientSize = new System.Drawing.Size(742, 443);
+            this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -444,6 +470,7 @@
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -483,6 +510,8 @@
         private System.Windows.Forms.Button BTN_2_1;
         private System.Windows.Forms.Button BTN_1_2;
         private System.Windows.Forms.Button BTN_1_1;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Button BTN_EXPORT_MACRO;
     }
 }
 

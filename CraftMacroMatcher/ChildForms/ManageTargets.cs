@@ -39,14 +39,15 @@ namespace CraftMacroMatcher.ChildForms
             string[] targets = TBX_TARGETS.Text.Split('\n');
             foreach (string target in targets)
             {
+                var t = target.Replace(' ', '_');
                 if (target == "" || target == " ") continue;
-                if (dict.ContainsKey(target))
+                if (dict.ContainsKey(t))
                 {
-                    newdict.Add(target, dict[target]);
+                    newdict.Add(t, dict[t]);
                 }
                 else
                 {
-                    newdict.Add(target, new List<CraftProcess>());
+                    newdict.Add(t, new List<CraftProcess>());
                 }
             }
             string str = JsonConvert.SerializeObject(newdict);

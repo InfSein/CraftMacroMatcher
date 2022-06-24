@@ -73,6 +73,12 @@
     <Compile Include="ChildForms\AddTinc.Designer.cs">
       <DependentUpon>AddTinc.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChildForms\ExportMacro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForms\ExportMacro.Designer.cs">
+      <DependentUpon>ExportMacro.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChildForms\MacroEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChildForms\AddTinc.resx">
       <DependentUpon>AddTinc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForms\ExportMacro.resx">
+      <DependentUpon>ExportMacro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChildForms\MacroEditor.resx">
       <DependentUpon>MacroEditor.cs</DependentUpon>

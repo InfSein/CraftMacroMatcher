@@ -22,6 +22,8 @@ namespace CraftMacroMatcher.ChildForms
             this.Processes = data;
             InitializeComponent();
         }
+        private new readonly string Enter = @"
+";
         private void AddCraftProcess_Load(object sender, EventArgs e)
         {
             SurfTargets(sender, e);
@@ -43,7 +45,7 @@ namespace CraftMacroMatcher.ChildForms
             TBX_PROCESS.Text = "";
             foreach (var a in loadProcess.actions)
             {
-                TBX_PROCESS.Text += $"/ac \"{a.name_cn}\" <wait.{a.wait_time}>\n";
+                TBX_PROCESS.Text += $"/ac \"{a.name_cn}\" <wait.{a.wait_time}>{Enter}";
             }
         }
 
@@ -66,7 +68,7 @@ namespace CraftMacroMatcher.ChildForms
             }
             CraftProcess cp = new CraftProcess();
             cp.name = TBX_PROCESS_NAME.Text == "" ? $"未命名工序_{DateTime.Now:yyyy-MM-dd_hh:mm:ss:fff}" :TBX_PROCESS_NAME.Text.Replace(' ', '_');
-            if (Processes[key].Find(x => x.name == cp.name).name != null)
+            if (key != null && Processes[key].Find(x => x.name == cp.name).name != null)
             {
                 MessageBox.Show("此制作对象下已存在同名工序");
                 return;
@@ -164,6 +166,7 @@ namespace CraftMacroMatcher.ChildForms
             Processes = MainForm.LoadProcesses();
 
             ClearTexts(sender, e);
+            SurfTargets(sender, e);
         }
 
         private void ClearTexts(object sender, EventArgs e)
@@ -194,6 +197,32 @@ namespace CraftMacroMatcher.ChildForms
         public void ChangeMacroText(string text, object sender, EventArgs e)
         {
             TBX_PROCESS.Text = text;
+        }
+
+        private void BTN_DEL_PROCESS_Click(object sender, EventArgs e)
+        {
+            if (CBX_LOAD_PROCESS.Text == "新增..." || CBX_LOAD_PROCESS.Text == "")
+            {
+                MessageBox.Show("尚未选择工序");
+                return;
+            }
+            try
+            {
+                string[] texts = CBX_LOAD_PROCESS.Text.Split(' ');
+                key = texts[0]; value = texts[2];
+                var loadProcess = Processes[key].Find(x => x.name == value);
+                Processes[key].Remove(loadProcess);
+                string json = JsonConvert.SerializeObject(Processes);
+                System.IO.File.WriteAllText(ProgramDatas.ProcessPath, json);
+                MessageBox.Show("工序删除成功");
+                Processes = MainForm.LoadProcesses();
+                SurfTargets(sender, e);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"此工序不存在或删除失败\nDetail:{ex}");
+                return;
+            }
         }
 
         private void SurfTargets(object sender, EventArgs e)

@@ -42,6 +42,7 @@ namespace CraftMacroMatcher
             CurrFood = InitFood();
             CurrTinc = InitFood();
             CurrProcesses = new List<CraftProcess>();
+            CurrActBtns = new List<Button>();
             ini = new INIUtil();
             NUD_Craftsmanship.Value = ini.ReadValueInt(INIUtil.Craftsmanship);
             NUD_Control.Value = ini.ReadValueInt(INIUtil.Control);
@@ -120,17 +121,23 @@ namespace CraftMacroMatcher
             {
                 CurrProcesses = Processes[CBX_CRAFT_TARGET.Text];
             }
+            int getNum = 0, totalNum = 0;
             CBX_PROCESS_SELECTED.Items.Clear();
             foreach (var l in CurrProcesses)
             {
-                if(l.need_craftsmanship <= trueCraftsmanship)
+                totalNum++;
+                if (l.need_craftsmanship <= trueCraftsmanship)
                     if(l.need_control <= trueControl && l.need_cp <= trueCp)
+                    {
+                        getNum++;
                         CBX_PROCESS_SELECTED.Items.Add($"[{l.steps}步{l.times}秒] {l.name}");
+                    }
             }
             if (CBX_PROCESS_SELECTED.Items.Count == 0)
             {
                 CBX_PROCESS_SELECTED.Items.Add("没有可用的工序");
             }
+            SLAB_TIP.Text = $"找到了{totalNum}个工序，其中有{getNum}个达到了最低要求";
         }
 
         private void ShowTargets(object sender, EventArgs e)
@@ -284,6 +291,10 @@ namespace CraftMacroMatcher
             ShowTincs(sender, e);
         }
 
+        private void BTN_EXPORT_MACRO_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void 添加食物ToolStripMenuItem_Click(object sender, EventArgs e)
         {

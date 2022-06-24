@@ -37,6 +37,7 @@
             this.NUD_CRAFTSMANSHIP = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.BTN_MACRO_EDITOR = new System.Windows.Forms.Button();
             this.TBX_PROCESS = new System.Windows.Forms.TextBox();
             this.RBT_SIMULATOR_PROCESS = new System.Windows.Forms.RadioButton();
             this.RBT_MACRO = new System.Windows.Forms.RadioButton();
@@ -45,7 +46,7 @@
             this.TBX_PROCESS_NAME = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.CBX_LOAD_PROCESS = new System.Windows.Forms.ComboBox();
-            this.BTN_MACRO_EDITOR = new System.Windows.Forms.Button();
+            this.BTN_DEL_PROCESS = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_CONTROL)).BeginInit();
@@ -156,6 +157,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "导入工序";
             // 
+            // BTN_MACRO_EDITOR
+            // 
+            this.BTN_MACRO_EDITOR.Location = new System.Drawing.Point(201, 19);
+            this.BTN_MACRO_EDITOR.Name = "BTN_MACRO_EDITOR";
+            this.BTN_MACRO_EDITOR.Size = new System.Drawing.Size(148, 31);
+            this.BTN_MACRO_EDITOR.TabIndex = 3;
+            this.BTN_MACRO_EDITOR.Text = "打开宏编辑器";
+            this.BTN_MACRO_EDITOR.UseVisualStyleBackColor = true;
+            this.BTN_MACRO_EDITOR.Click += new System.EventHandler(this.BTN_MACRO_EDITOR_Click);
+            // 
             // TBX_PROCESS
             // 
             this.TBX_PROCESS.Location = new System.Drawing.Point(25, 52);
@@ -219,6 +230,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.BTN_DEL_PROCESS);
             this.groupBox5.Controls.Add(this.CBX_LOAD_PROCESS);
             this.groupBox5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox5.Location = new System.Drawing.Point(11, 12);
@@ -234,19 +246,19 @@
             this.CBX_LOAD_PROCESS.FormattingEnabled = true;
             this.CBX_LOAD_PROCESS.Location = new System.Drawing.Point(25, 26);
             this.CBX_LOAD_PROCESS.Name = "CBX_LOAD_PROCESS";
-            this.CBX_LOAD_PROCESS.Size = new System.Drawing.Size(324, 28);
+            this.CBX_LOAD_PROCESS.Size = new System.Drawing.Size(243, 28);
             this.CBX_LOAD_PROCESS.TabIndex = 0;
             this.CBX_LOAD_PROCESS.SelectedIndexChanged += new System.EventHandler(this.CBX_LOAD_PROCESS_SelectedIndexChanged);
             // 
-            // BTN_MACRO_EDITOR
+            // BTN_DEL_PROCESS
             // 
-            this.BTN_MACRO_EDITOR.Location = new System.Drawing.Point(201, 19);
-            this.BTN_MACRO_EDITOR.Name = "BTN_MACRO_EDITOR";
-            this.BTN_MACRO_EDITOR.Size = new System.Drawing.Size(148, 31);
-            this.BTN_MACRO_EDITOR.TabIndex = 3;
-            this.BTN_MACRO_EDITOR.Text = "打开宏编辑器";
-            this.BTN_MACRO_EDITOR.UseVisualStyleBackColor = true;
-            this.BTN_MACRO_EDITOR.Click += new System.EventHandler(this.BTN_MACRO_EDITOR_Click);
+            this.BTN_DEL_PROCESS.Location = new System.Drawing.Point(274, 25);
+            this.BTN_DEL_PROCESS.Name = "BTN_DEL_PROCESS";
+            this.BTN_DEL_PROCESS.Size = new System.Drawing.Size(75, 29);
+            this.BTN_DEL_PROCESS.TabIndex = 2;
+            this.BTN_DEL_PROCESS.Text = "删除";
+            this.BTN_DEL_PROCESS.UseVisualStyleBackColor = true;
+            this.BTN_DEL_PROCESS.Click += new System.EventHandler(this.BTN_DEL_PROCESS_Click);
             // 
             // AddCraftProcess
             // 
@@ -299,5 +311,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ComboBox CBX_LOAD_PROCESS;
         private System.Windows.Forms.Button BTN_MACRO_EDITOR;
+        private System.Windows.Forms.Button BTN_DEL_PROCESS;
     }
 }
