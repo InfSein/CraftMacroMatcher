@@ -16,5 +16,10 @@ namespace CraftMacroMatcher.ChildForms
         {
             InitializeComponent();
         }
+
+        private void About_Load(object sender, EventArgs e)
+        {
+            this.label1.Text = $"能工巧匠配宏器 {ProgramDatas.MacroMatcherPatch}\r\n作者: InfSein\r\n(预装)工序作者: 啵带, 月下";
+        }
     }
 }

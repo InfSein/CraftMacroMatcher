@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using static CraftMacroMatcher.Structs;
+using Action = CraftMacroMatcher.Structs.Action;
 
 namespace CraftMacroMatcher
 {
@@ -18,6 +19,7 @@ namespace CraftMacroMatcher
         List<string> CraftTargets;
         List<Button> CurrActBtns;
         List<CraftProcess> CurrProcesses;
+        CraftProcess selectedProcess;
         FoodProps CurrFood;
         FoodProps CurrTinc;
 
@@ -71,7 +73,7 @@ namespace CraftMacroMatcher
             try
             {
                 string processName = CBX_PROCESS_SELECTED.Text.Split(' ')[1];
-                CraftProcess selectedProcess = CurrProcesses.Find(l => l.name == processName);
+                selectedProcess = CurrProcesses.Find(l => l.name == processName);
                 LAB_NEED.Text = $"需要: {selectedProcess.need_craftsmanship}/{selectedProcess.need_control}/{selectedProcess.need_cp}";
                 MacroEditor me = new MacroEditor();
                 int count = 1;
@@ -103,7 +105,10 @@ namespace CraftMacroMatcher
                 }
                 
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"读取工序失败。错误信息：\n{ex}");
+            }
         }
         private void GetLocations(object sender, EventArgs e)
         {
@@ -293,7 +298,22 @@ namespace CraftMacroMatcher
 
         private void BTN_EXPORT_MACRO_Click(object sender, EventArgs e)
         {
+            try
+            {
+                List<Action> actions = selectedProcess.actions;
+                ExportMacro em = new ExportMacro(actions);
+                em.ShowDialog();
+            }
+            catch
+            {
+                
+            }
+        }
 
+        private void 关于本作ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About a = new About();
+            a.ShowDialog();
         }
 
         private void 添加食物ToolStripMenuItem_Click(object sender, EventArgs e)

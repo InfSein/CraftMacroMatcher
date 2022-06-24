@@ -36,13 +36,6 @@ namespace CraftMacroMatcher.ChildForms
             selectedActions = new List<Action>();
             CurrActBtns = new List<Button>();
             GetLocations(sender, e);
-            foreach(Control c in this.Controls)
-            {
-                if (c is Button)
-                {
-                    toolTip1.SetToolTip(c, c.Name);
-                }
-            }
         }
 
         private void OnActionButtonClicked(object sender, EventArgs e)
@@ -93,6 +86,7 @@ namespace CraftMacroMatcher.ChildForms
                 count++;
                 CurrActBtns.Add(button);
                 panel1.Controls.Add(button);
+                toolTip1.SetToolTip(button, action.name_cn);
             }
         }
         public Button GetButton(Action action)

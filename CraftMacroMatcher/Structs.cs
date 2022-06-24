@@ -78,7 +78,25 @@ namespace CraftMacroMatcher
                 //this.name_sm = name_sm;
             }
 
+            public string OutPutMacroLine(string language)
+            {
+                switch (language)
+                {
+                    case "日语":
+                        return $"/ac \"{name_jp}\" <wait.{wait_time}>{Enter}";
+
+                    case "英语":
+                        return $"/ac \"{name_en}\" <wait.{wait_time}>{Enter}";
+
+                    case "中文":
+                    default:
+                        return $"/ac \"{name_cn}\" <wait.{wait_time}>{Enter}";
+                }
+            }
         }
+
+        private static readonly string Enter = @"
+";
         #endregion
 
     }
