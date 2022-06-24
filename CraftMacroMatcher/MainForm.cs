@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using static CraftMacroMatcher.Structs;
@@ -15,11 +16,14 @@ namespace CraftMacroMatcher
         Dictionary<string, FoodProps> Foods;
         Dictionary<string, FoodProps> Tincs;
         List<string> CraftTargets;
+        List<Button> CurrActBtns;
         List<CraftProcess> CurrProcesses;
         FoodProps CurrFood;
         FoodProps CurrTinc;
 
         int trueCraftsmanship, trueControl, trueCp;
+        Point actStartPos;
+        int xAdd, yAdd;
         public MainForm()
         {
             InitializeComponent();
@@ -27,6 +31,7 @@ namespace CraftMacroMatcher
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            GetLocations(sender, e);
             Processes = LoadProcesses();
             CraftTargets = LoadTargets();
             ShowTargets(sender, e);
@@ -58,13 +63,55 @@ namespace CraftMacroMatcher
         }
         private void CBX_PROCESS_SELECTED_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (CBX_PROCESS_SELECTED.Text == "没有可用的工序")
+            {
+                return;
+            }
             try
             {
                 string processName = CBX_PROCESS_SELECTED.Text.Split(' ')[1];
                 CraftProcess selectedProcess = CurrProcesses.Find(l => l.name == processName);
-                //MessageBox.Show($"{selectedProcess.name},{selectedProcess.need_control}");
+                LAB_NEED.Text = $"需要: {selectedProcess.need_craftsmanship}/{selectedProcess.need_control}/{selectedProcess.need_cp}";
+                MacroEditor me = new MacroEditor();
+                int count = 1;
+                Point next = actStartPos;
+                foreach (var b in CurrActBtns)
+                {
+                    this.Controls.Remove(b);
+                    b.Dispose();
+                }
+                foreach (var a in selectedProcess.actions)
+                {
+                    Button button = me.GetButton(a);
+                    button.Name = $"act_{count}";
+                    button.Location = next;
+                    button.Visible = true;
+                    button.Enabled = true;
+                    if (count % 7 == 0)
+                    {
+                        next.X = actStartPos.X;
+                        next.Y += yAdd;
+                    }
+                    else
+                    {
+                        next.X += xAdd;
+                    }
+                    count++;
+                    CurrActBtns.Add(button);
+                    panel1.Controls.Add(button);
+                }
+                
             }
             catch { }
+        }
+        private void GetLocations(object sender, EventArgs e)
+        {
+            actStartPos = BTN_1_1.Location;
+            xAdd = BTN_1_2.Location.X - actStartPos.X;
+            yAdd = BTN_2_1.Location.Y - actStartPos.Y;
+            BTN_1_1.Visible = false;
+            BTN_1_2.Visible = false;
+            BTN_2_1.Visible = false;
         }
 
         private void CBX_CRAFT_TARGET_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,7 +123,13 @@ namespace CraftMacroMatcher
             CBX_PROCESS_SELECTED.Items.Clear();
             foreach (var l in CurrProcesses)
             {
-                CBX_PROCESS_SELECTED.Items.Add($"[{l.steps}步{l.times}秒] {l.name}");
+                if(l.need_craftsmanship <= trueCraftsmanship)
+                    if(l.need_control <= trueControl && l.need_cp <= trueCp)
+                        CBX_PROCESS_SELECTED.Items.Add($"[{l.steps}步{l.times}秒] {l.name}");
+            }
+            if (CBX_PROCESS_SELECTED.Items.Count == 0)
+            {
+                CBX_PROCESS_SELECTED.Items.Add("没有可用的工序");
             }
         }
 

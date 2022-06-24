@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChildForms\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForms\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChildForms\AddCraftProcess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\INIUtil.cs" />
     <Compile Include="Structs.cs" />
+    <EmbeddedResource Include="ChildForms\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChildForms\AddCraftProcess.resx">
       <DependentUpon>AddCraftProcess.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +125,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -130,6 +140,41 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ActionImages\001501_hr1.png" />
+    <Content Include="Resources\ActionImages\001502_hr1.png" />
+    <Content Include="Resources\ActionImages\001503_hr1.png" />
+    <Content Include="Resources\ActionImages\001507_hr1.png" />
+    <Content Include="Resources\ActionImages\001514_hr1.png" />
+    <Content Include="Resources\ActionImages\001516_hr1.png" />
+    <Content Include="Resources\ActionImages\001518_hr1.png" />
+    <Content Include="Resources\ActionImages\001519_hr1.png" />
+    <Content Include="Resources\ActionImages\001520_hr1.png" />
+    <Content Include="Resources\ActionImages\001524_hr1.png" />
+    <Content Include="Resources\ActionImages\001535_hr1.png" />
+    <Content Include="Resources\ActionImages\001536_hr1.png" />
+    <Content Include="Resources\ActionImages\001537_hr1.png" />
+    <Content Include="Resources\ActionImages\001952_hr1.png" />
+    <Content Include="Resources\ActionImages\001954_hr1.png" />
+    <Content Include="Resources\ActionImages\001955_hr1.png" />
+    <Content Include="Resources\ActionImages\001975_hr1.png" />
+    <Content Include="Resources\ActionImages\001981_hr1.png" />
+    <Content Include="Resources\ActionImages\001982_hr1.png" />
+    <Content Include="Resources\ActionImages\001983_hr1.png" />
+    <Content Include="Resources\ActionImages\001984_hr1.png" />
+    <Content Include="Resources\ActionImages\001985_hr1.png" />
+    <Content Include="Resources\ActionImages\001986_hr1.png" />
+    <Content Include="Resources\ActionImages\001987_hr1.png" />
+    <Content Include="Resources\ActionImages\001988_hr1.png" />
+    <Content Include="Resources\ActionImages\001989_hr1.png" />
+    <Content Include="Resources\ActionImages\001990_hr1.png" />
+    <Content Include="Resources\ActionImages\001992_hr1.png" />
+    <Content Include="Resources\ActionImages\001993_hr1.png" />
+    <Content Include="Resources\ActionImages\001994_hr1.png" />
+    <Content Include="Resources\ActionImages\001995_hr1.png" />
+    <Content Include="Resources\ActionImages\001996_hr1.png" />
+    <Content Include="Resources\ActionImages\001997_hr1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

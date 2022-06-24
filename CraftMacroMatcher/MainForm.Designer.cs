@@ -34,12 +34,18 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.配置数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.添加工序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加食物ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加编辑药水ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于本作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.NUD_Craftsmanship = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.CBX_CRAFT_TARGET = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.CBX_TINCS = new System.Windows.Forms.ComboBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.CBX_FOODS = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.CBX_IS_MASTER = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -47,29 +53,29 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.NUD_Control = new System.Windows.Forms.NumericUpDown();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.CBX_PROCESS_SELECTED = new System.Windows.Forms.ComboBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.CBX_FOODS = new System.Windows.Forms.ComboBox();
-            this.添加食物ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.CBX_TINCS = new System.Windows.Forms.ComboBox();
-            this.添加编辑药水ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.LAB_NEED = new System.Windows.Forms.Label();
+            this.BTN_1_1 = new System.Windows.Forms.Button();
+            this.BTN_1_2 = new System.Windows.Forms.Button();
+            this.BTN_2_1 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Craftsmanship)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_CP)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Control)).BeginInit();
             this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            this.groupBox9.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -115,9 +121,23 @@
             // 添加工序ToolStripMenuItem
             // 
             this.添加工序ToolStripMenuItem.Name = "添加工序ToolStripMenuItem";
-            this.添加工序ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.添加工序ToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.添加工序ToolStripMenuItem.Text = "添加/编辑工序";
             this.添加工序ToolStripMenuItem.Click += new System.EventHandler(this.添加工序ToolStripMenuItem_Click);
+            // 
+            // 添加食物ToolStripMenuItem
+            // 
+            this.添加食物ToolStripMenuItem.Name = "添加食物ToolStripMenuItem";
+            this.添加食物ToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
+            this.添加食物ToolStripMenuItem.Text = "添加/编辑食物";
+            this.添加食物ToolStripMenuItem.Click += new System.EventHandler(this.添加食物ToolStripMenuItem_Click);
+            // 
+            // 添加编辑药水ToolStripMenuItem
+            // 
+            this.添加编辑药水ToolStripMenuItem.Name = "添加编辑药水ToolStripMenuItem";
+            this.添加编辑药水ToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
+            this.添加编辑药水ToolStripMenuItem.Text = "添加/编辑药水";
+            this.添加编辑药水ToolStripMenuItem.Click += new System.EventHandler(this.添加编辑药水ToolStripMenuItem_Click);
             // 
             // 关于本作ToolStripMenuItem
             // 
@@ -186,6 +206,48 @@
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "自身属性";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.CBX_TINCS);
+            this.groupBox9.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox9.Location = new System.Drawing.Point(6, 231);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(232, 69);
+            this.groupBox9.TabIndex = 7;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "使用药水";
+            // 
+            // CBX_TINCS
+            // 
+            this.CBX_TINCS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBX_TINCS.FormattingEnabled = true;
+            this.CBX_TINCS.Location = new System.Drawing.Point(25, 25);
+            this.CBX_TINCS.Name = "CBX_TINCS";
+            this.CBX_TINCS.Size = new System.Drawing.Size(200, 28);
+            this.CBX_TINCS.TabIndex = 1;
+            this.CBX_TINCS.SelectedIndexChanged += new System.EventHandler(this.CBX_TINCS_SelectedIndexChanged);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.CBX_FOODS);
+            this.groupBox8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox8.Location = new System.Drawing.Point(6, 156);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(232, 69);
+            this.groupBox8.TabIndex = 6;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "使用食物";
+            // 
+            // CBX_FOODS
+            // 
+            this.CBX_FOODS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBX_FOODS.FormattingEnabled = true;
+            this.CBX_FOODS.Location = new System.Drawing.Point(25, 25);
+            this.CBX_FOODS.Name = "CBX_FOODS";
+            this.CBX_FOODS.Size = new System.Drawing.Size(200, 28);
+            this.CBX_FOODS.TabIndex = 1;
+            this.CBX_FOODS.SelectedIndexChanged += new System.EventHandler(this.CBX_FOODS_SelectedIndexChanged);
             // 
             // groupBox6
             // 
@@ -263,24 +325,17 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.LAB_NEED);
+            this.groupBox7.Controls.Add(this.panel1);
             this.groupBox7.Controls.Add(this.CBX_PROCESS_SELECTED);
             this.groupBox7.Controls.Add(this.label1);
             this.groupBox7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox7.Location = new System.Drawing.Point(262, 31);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(496, 374);
+            this.groupBox7.Size = new System.Drawing.Size(462, 374);
             this.groupBox7.TabIndex = 5;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "查看工序";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "可选工序";
             // 
             // CBX_PROCESS_SELECTED
             // 
@@ -292,61 +347,68 @@
             this.CBX_PROCESS_SELECTED.TabIndex = 1;
             this.CBX_PROCESS_SELECTED.SelectedIndexChanged += new System.EventHandler(this.CBX_PROCESS_SELECTED_SelectedIndexChanged);
             // 
-            // groupBox8
+            // label1
             // 
-            this.groupBox8.Controls.Add(this.CBX_FOODS);
-            this.groupBox8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox8.Location = new System.Drawing.Point(6, 156);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(232, 69);
-            this.groupBox8.TabIndex = 6;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "使用食物";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "可选工序";
             // 
-            // CBX_FOODS
+            // panel1
             // 
-            this.CBX_FOODS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBX_FOODS.FormattingEnabled = true;
-            this.CBX_FOODS.Location = new System.Drawing.Point(25, 25);
-            this.CBX_FOODS.Name = "CBX_FOODS";
-            this.CBX_FOODS.Size = new System.Drawing.Size(200, 28);
-            this.CBX_FOODS.TabIndex = 1;
-            this.CBX_FOODS.SelectedIndexChanged += new System.EventHandler(this.CBX_FOODS_SelectedIndexChanged);
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.BTN_2_1);
+            this.panel1.Controls.Add(this.BTN_1_2);
+            this.panel1.Controls.Add(this.BTN_1_1);
+            this.panel1.Location = new System.Drawing.Point(14, 53);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(437, 221);
+            this.panel1.TabIndex = 2;
             // 
-            // 添加食物ToolStripMenuItem
+            // LAB_NEED
             // 
-            this.添加食物ToolStripMenuItem.Name = "添加食物ToolStripMenuItem";
-            this.添加食物ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.添加食物ToolStripMenuItem.Text = "添加/编辑食物";
-            this.添加食物ToolStripMenuItem.Click += new System.EventHandler(this.添加食物ToolStripMenuItem_Click);
+            this.LAB_NEED.AutoSize = true;
+            this.LAB_NEED.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.LAB_NEED.Location = new System.Drawing.Point(319, 26);
+            this.LAB_NEED.Name = "LAB_NEED";
+            this.LAB_NEED.Size = new System.Drawing.Size(86, 20);
+            this.LAB_NEED.TabIndex = 3;
+            this.LAB_NEED.Text = "需要: 0/0/0";
             // 
-            // groupBox9
+            // BTN_1_1
             // 
-            this.groupBox9.Controls.Add(this.CBX_TINCS);
-            this.groupBox9.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox9.Location = new System.Drawing.Point(6, 231);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(232, 69);
-            this.groupBox9.TabIndex = 7;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "使用药水";
+            this.BTN_1_1.BackgroundImage = global::CraftMacroMatcher.Properties.Resources._001986_hr1;
+            this.BTN_1_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_1_1.Cursor = System.Windows.Forms.Cursors.Help;
+            this.BTN_1_1.Location = new System.Drawing.Point(12, 13);
+            this.BTN_1_1.Name = "BTN_1_1";
+            this.BTN_1_1.Size = new System.Drawing.Size(50, 50);
+            this.BTN_1_1.TabIndex = 3;
+            this.BTN_1_1.UseVisualStyleBackColor = true;
             // 
-            // CBX_TINCS
+            // BTN_1_2
             // 
-            this.CBX_TINCS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBX_TINCS.FormattingEnabled = true;
-            this.CBX_TINCS.Location = new System.Drawing.Point(25, 25);
-            this.CBX_TINCS.Name = "CBX_TINCS";
-            this.CBX_TINCS.Size = new System.Drawing.Size(200, 28);
-            this.CBX_TINCS.TabIndex = 1;
-            this.CBX_TINCS.SelectedIndexChanged += new System.EventHandler(this.CBX_TINCS_SelectedIndexChanged);
+            this.BTN_1_2.BackgroundImage = global::CraftMacroMatcher.Properties.Resources._001986_hr1;
+            this.BTN_1_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_1_2.Cursor = System.Windows.Forms.Cursors.Help;
+            this.BTN_1_2.Location = new System.Drawing.Point(68, 13);
+            this.BTN_1_2.Name = "BTN_1_2";
+            this.BTN_1_2.Size = new System.Drawing.Size(50, 50);
+            this.BTN_1_2.TabIndex = 4;
+            this.BTN_1_2.UseVisualStyleBackColor = true;
             // 
-            // 添加编辑药水ToolStripMenuItem
+            // BTN_2_1
             // 
-            this.添加编辑药水ToolStripMenuItem.Name = "添加编辑药水ToolStripMenuItem";
-            this.添加编辑药水ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.添加编辑药水ToolStripMenuItem.Text = "添加/编辑药水";
-            this.添加编辑药水ToolStripMenuItem.Click += new System.EventHandler(this.添加编辑药水ToolStripMenuItem_Click);
+            this.BTN_2_1.BackgroundImage = global::CraftMacroMatcher.Properties.Resources._001986_hr1;
+            this.BTN_2_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_2_1.Cursor = System.Windows.Forms.Cursors.Help;
+            this.BTN_2_1.Location = new System.Drawing.Point(12, 69);
+            this.BTN_2_1.Name = "BTN_2_1";
+            this.BTN_2_1.Size = new System.Drawing.Size(50, 50);
+            this.BTN_2_1.TabIndex = 10;
+            this.BTN_2_1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -371,6 +433,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Craftsmanship)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -379,8 +443,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Control)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,6 +478,11 @@
         private System.Windows.Forms.ToolStripMenuItem 添加编辑药水ToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.ComboBox CBX_TINCS;
+        private System.Windows.Forms.Label LAB_NEED;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button BTN_2_1;
+        private System.Windows.Forms.Button BTN_1_2;
+        private System.Windows.Forms.Button BTN_1_1;
     }
 }
 
