@@ -107,5 +107,38 @@ namespace CraftMacroMatcher.ChildForms
             TBX_CONTROL_MAX.Text = "";
             TBX_CP_MAX.Text = "";
         }
+
+        private void BTN_DEL_Click(object sender, EventArgs e)
+        {
+            var text = CBX_LOAD_FOOD.Text;
+            if (text == "新增..." || text == "")
+            {
+                MessageBox.Show("尚未选择");
+                return;
+            }
+            try
+            {
+                string key = text;
+                Foods.Remove(key);
+                string json = JsonConvert.SerializeObject(Foods);
+                System.IO.File.WriteAllText(ProgramDatas.FoodPath, json);
+                MessageBox.Show("删除成功");
+                Foods = MainForm.LoadFoods();
+                SurfFoodList(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"对象不存在或删除失败\nDetail:{ex}");
+                return;
+            }
+        }
+
+        private void BTN_ADJUST_Click(object sender, EventArgs e)
+        {
+            AdjustSeqOfFoodsOrTincs asofot = new AdjustSeqOfFoodsOrTincs(Foods, "food");
+            asofot.ShowDialog();
+            Foods = MainForm.LoadFoods();
+            SurfFoodList(sender, e);
+        }
     }
 }

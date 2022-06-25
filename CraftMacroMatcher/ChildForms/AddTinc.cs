@@ -32,7 +32,9 @@ namespace CraftMacroMatcher.ChildForms
             {
                 Tincs.Remove(CBX_LOAD_TINC.Text);
             }
-            string saveName = $"({(CBX_ISHQ.Checked ? "HQ" : "NQ")}) {TBX_TINC_NAME.Text}";
+            var name = TBX_TINC_NAME.Text;
+            //name = name.Replace(' ', '_');
+            string saveName = $"({(CBX_ISHQ.Checked ? "HQ" : "NQ")}) {name}";
             if (Tincs.ContainsKey(saveName))
             {
                 MessageBox.Show("已存在同名药水");
@@ -40,7 +42,7 @@ namespace CraftMacroMatcher.ChildForms
             }
             FoodProps fp = new FoodProps
             {
-                name = TBX_TINC_NAME.Text,
+                name = name,
                 craftsmanshipAdd_Percent = ParseText(TBX_CRAFTSM_PERCENT.Text, "float"),
                 controlAdd_Percent = ParseText(TBX_CONTROL_PERCENT.Text, "float"),
                 cpAdd_Percent = ParseText(TBX_CP_PERCENT.Text, "float"),
@@ -107,6 +109,39 @@ namespace CraftMacroMatcher.ChildForms
             TBX_CRAFTSM_MAX.Text = "";
             TBX_CONTROL_MAX.Text = "";
             TBX_CP_MAX.Text = "";
+        }
+
+        private void BTN_DEL_Click(object sender, EventArgs e)
+        {
+            var text = CBX_LOAD_TINC.Text;
+            if (text == "新增..." || text == "")
+            {
+                MessageBox.Show("尚未选择");
+                return;
+            }
+            try
+            {
+                string key = text;
+                Tincs.Remove(key);
+                string json = JsonConvert.SerializeObject(Tincs);
+                System.IO.File.WriteAllText(ProgramDatas.TincPath, json);
+                MessageBox.Show("删除成功");
+                Tincs = MainForm.LoadTincs();
+                SurfTincList(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"对象不存在或删除失败\nDetail:{ex}");
+                return;
+            }
+        }
+
+        private void BTN_ADJUST_Click(object sender, EventArgs e)
+        {
+            AdjustSeqOfFoodsOrTincs asofot = new AdjustSeqOfFoodsOrTincs(Tincs, "tinc");
+            asofot.ShowDialog();
+            Tincs = MainForm.LoadTincs();
+            SurfTincList(sender, e);
         }
     }
 }

@@ -8,7 +8,10 @@ namespace CraftMacroMatcher
 {
     internal class ProgramDatas
     {
-        public static string MacroMatcherPatch = "1.0.0 alpha1";
+        public static string MacroMatcherPatch = "1.0.0 alpha2";
+
+        public const string ProjectPath = @"https://github.com/InfSein/CraftMacroMatcher";
+        public const string DonatePath  = @"https://afdian.net/@infsein";
 
         public static string ProcessPath = Environment.CurrentDirectory + "\\CraftProcesses.json";
         public static string FoodPath = Environment.CurrentDirectory + "\\Foods.json";
